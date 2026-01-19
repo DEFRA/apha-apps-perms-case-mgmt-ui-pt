@@ -1,4 +1,4 @@
-# cdp-perf-test-suite-template
+# apha-apps-perms-case-mgmt-ui-pt
 
 A JMeter based test runner for the CDP Platform.
 
