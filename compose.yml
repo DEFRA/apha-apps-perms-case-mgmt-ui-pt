@@ -19,7 +19,7 @@ services:
       - performance-tests
 
   localstack:
-    image: localstack/localstack:4.3.0
+    image: localstack/localstack:4.3.0@sha256:7c28b33fde00e38ec2c30e8b5a60fced08d0d06e2e831a2ff74c2f5c3e6c6f75
     ports:
       - '4566:4566' # LocalStack Gateway
       - '4510-4559:4510-4559' # external services port range
@@ -43,7 +43,7 @@ services:
       - performance-tests
 
   redis:
-    image: redis:7.2.3-alpine3.18
+    image: redis:7.2.3-alpine3.18@sha256:c30a6b33191ec35c5420cd628de218c5c2c5d0f5d56e8c4e0e5f60c0a68cfcc1
     ports:
       - '6379:6379'
     restart: always
@@ -52,7 +52,8 @@ services:
 
   service:
     # replace service-name with the name of your service being performace tested
-    image: defradigital/service-name:${SERVICE_VERSION:-latest}
+    # Note: When deploying, ensure SERVICE_VERSION is set to a specific version tag (not 'latest')
+    image: defradigital/service-name:${SERVICE_VERSION}
     ports:
       - '3000:3000'
     links:
